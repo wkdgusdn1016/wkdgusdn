@@ -27,30 +27,22 @@ public class Elevator extends Lift{
 	
 	void go1() {
 		String msg="";
-		while(true){
-			msg="ÇöÀç ¿¤¸®º£ÀÌÅÍ´Â"+floor+"Ãþ (ÇöÀç ¼Õ´ÔÀÌ ÀÖ´Â Ãþ:"+floor2+ ")";
-			System.out.println(msg);
-			if(floor2>maxFloor||floor2<minFloor) {
-				System.out.println("ÁöÇÏ 3ÃþºÎÅÍ 15Ãþ±îÁö¸¸ °¡´ÉÇÕ´Ï´Ù.");
-				
-			}
-			else {
-				break;
-			}
-		}
+		msg="ÇöÀç ¿¤¸®º£ÀÌÅÍ´Â"+floor+"Ãþ (ÇöÀç ¼Õ´ÔÀÌ ÀÖ´Â Ãþ:"+floor2+ ")";
+		System.out.println(msg);
 		start1(floor2);
 		
 	}
-	void start1(int choice2) {
-		if(choice2<floor) {   //ÇöÀç Ãþ¼ö°¡ °¡°íÀÚÇÏ´Â Ãþ¼öº¸´Ù Ä¿¾ßÁö¸¸ 
-			for (int i = 0; i <= floor-choice2+i; i++) {
+	void start1(int choice1) {
+		if(choice1<floor) {  
+			for (int i = 0; i <= floor-choice1+i; i++) {
 				if(floor!=0) {
 					System.out.println(floor+"Ãþ");//0ÃþÀ» ¾ø¾ÖÁØ´Ù.
 					try {
 						Thread.sleep(1000);
-					} 
-					catch (InterruptedException e) {}
+					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				down();
 				
@@ -58,8 +50,8 @@ public class Elevator extends Lift{
 			stop();
 			System.out.println("Å¾½Â ºÎÅ¹µå¸³´Ï´Ù.");
 		}
-		else if(floor!=choice2) {
-			for (int i = 0; i <= choice2-floor+i; i++) {
+		else if(floor!=choice1) {
+			for (int i = 0; i <= choice1-floor+i; i++) {
 				if(floor!=0) {
 					System.out.println(floor+"Ãþ");
 					try {
